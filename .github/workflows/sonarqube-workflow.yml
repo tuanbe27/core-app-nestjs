@@ -1,26 +1,37 @@
-name: SonarCloud build
+name: tests
+
 on:
-  push:
-    branches:
-      - master
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches: [master]
+
 jobs:
-  sonarcloud:
-    name: SonarCloud
+  test_pull_request:
     runs-on: ubuntu-latest
+    env:
+      APP_ENV: test
+      APP_PORT: 3000
+      DB_HOST: localhost
+      DB_PORT: 3306
+      DB_NAME: example_db
+      DB_USER: root
+      DB_PASS: example
+      JWT_ACCESS_TOKEN_EXP_IN_SEC: 3600
+      JWT_REFRESH_TOKEN_EXP_IN_SEC: 7200
+      JWT_PUBLIC_KEY_BASE64: ${{ secrets.JWT_PUBLIC_KEY_BASE64 }}
+      JWT_PRIVATE_KEY_BASE64: ${{ secrets.JWT_PRIVATE_KEY_BASE64 }}
+      DEFAULT_ADMIN_USER_PASSWORD: example_admin_pass
+
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
       - uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 12
       - run: yarn add ci
-      - name: Run test cov
-        run: yarn test:cov
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Run unit tests
+        run: yarn test
+      - name: Build the docker-compose stack
+        run: docker-compose -f docker-compose.yml up -d mysqldb
+      - name: Check running containers
+        run: docker ps -a
+      - name: Run e2e tests
+        run: sleep 5 && yarn test:e2e
