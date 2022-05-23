@@ -62,17 +62,17 @@
     "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.3.0",
-    "swagger-ui-express": "4.4.0",
+    "rxjs": "^7.5.5",
+    "swagger-ui-express": "4.1.6",
     "typeorm": "^0.2.37",
     "uuid": "^8.3.2",
-    "winston": "^3.6.0"
+    "winston": "^3.7.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
     "@compodoc/compodoc": "^1.1.19",
-    "@nestjs/cli": "^8.1.1",
+    "@nestjs/cli": "^8.2.6",
     "@nestjs/schematics": "^8.0.3",
     "@nestjs/testing": "^8.0.6",
     "@types/bcrypt": "^5.0.0",
