@@ -26,12 +26,12 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: npm ci
+      - run: yarn add ci
       - name: Run unit tests
-        run: npm test
+        run: yarn test
       - name: Build the docker-compose stack
         run: docker-compose -f docker-compose.yml up -d mysqldb
       - name: Check running containers
         run: docker ps -a
       - name: Run e2e tests
-        run: sleep 5 && npm run test:e2e
+        run: sleep 5 && yarn test:e2e
