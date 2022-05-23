@@ -37,7 +37,7 @@ services:
     volumes:
       - mysqldata:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: example
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: example_db
 
   adminer:
