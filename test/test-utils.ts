@@ -12,7 +12,7 @@ import { UserService } from '../src/user/services/user.service';
 
 const TEST_DB_CONNECTION_NAME = 'e2e_test_connection';
 export const TEST_DB_NAME = 'e2e_test_db';
-export const TEST_DB_PASSWORD = '12345678';
+export const TEST_DB_PASSWORD = 'password';
 
 export const resetDBBeforeTest = async (): Promise<void> => {
   // This overwrites the DB_NAME used in the SharedModule's TypeORM init.

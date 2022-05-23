@@ -14,7 +14,7 @@ jobs:
       DB_PORT: 3306
       DB_NAME: example_db
       DB_USER: root
-      DB_PASS: example
+      DB_PASS: password
       JWT_ACCESS_TOKEN_EXP_IN_SEC: 3600
       JWT_REFRESH_TOKEN_EXP_IN_SEC: 7200
       JWT_PUBLIC_KEY_BASE64: ${{ secrets.JWT_PUBLIC_KEY_BASE64 }}
