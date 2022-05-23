@@ -12,7 +12,6 @@ import { UserService } from '../src/user/services/user.service';
 
 const TEST_DB_CONNECTION_NAME = 'e2e_test_connection';
 export const TEST_DB_NAME = 'e2e_test_db';
-export const TEST_DB_PASSWORD = '12345678';
 
 export const resetDBBeforeTest = async (): Promise<void> => {
   // This overwrites the DB_NAME used in the SharedModule's TypeORM init.
@@ -26,7 +25,7 @@ export const resetDBBeforeTest = async (): Promise<void> => {
     host: 'localhost',
     port: 3306,
     username: 'root',
-    password: TEST_DB_PASSWORD,
+    password: 'example',
   });
 
   await connection.query(`drop database if exists ${TEST_DB_NAME}`);
@@ -43,7 +42,7 @@ export const createDBEntities = async (): Promise<void> => {
     host: 'localhost',
     port: 3306,
     username: 'root',
-    password: TEST_DB_PASSWORD,
+    password: 'example',
     database: TEST_DB_NAME,
     entities: [__dirname + '/../src/**/*.entity{.ts,.js}'],
     synchronize: true,
