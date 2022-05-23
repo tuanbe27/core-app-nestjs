@@ -36,6 +36,6 @@ jobs:
       - name: Check SQL version
         run: mysql -V
       - name: Check login mysql
-        run: mysql -u root -p password
+        run: mysql --host 127.0.0.1 --port 3306 -uroot -ppassword -e "SHOW DATABASES"
       - name: Run e2e tests
         run: sleep 5 && yarn test:e2e
