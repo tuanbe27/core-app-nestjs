@@ -23,7 +23,7 @@ To view sample implementations based on this starter kit, please visit the [nest
 One of our main principals has been to keep the starter kit as lightweight as possible. With that in mind, here are some of the features that we have added in this starter kit.
 
 | Feature                  | Info               | Progress |
-|--------------------------|--------------------|----------|
+| ------------------------ | ------------------ | -------- |
 | Authentication           | JWT                | Done     |
 | Authorization            | RBAC (Role based)  | Done     |
 | ORM Integration          | TypeORM            | Done     |
@@ -59,11 +59,13 @@ Generate public and private key pair for jwt authentication:
 ### With docker
 
 Run this command:
+
 ```bash
 ./scripts/generate-jwt-keys
 ```
 
 It will output something like this. You only need to add it to your `.env` file.
+
 ```
 To setup the JWT keys, please add the following values to your .env file:
 JWT_PUBLIC_KEY_BASE64="(long base64 content)"
@@ -165,14 +167,9 @@ $ npm run migration:revert
 
 - [Project Structure](./docs/project-structure.md)
 
-## Contributors
+## Reference
 
-- [Yash Murty](https://github.com/yashmurty)
-- [S M Asad Rahman](https://github.com/asad-mlbd)
-- [Tanveer Hassan](https://github.com/war1oc)
-- [Saad Bin Amjad](https://github.com/Saad-Amjad)
-- [Sivan Payyadakath](https://github.com/sivanpayyadakath)
-- [Sébastien Caparros](https://github.com/Seb-C)
+- [nestjs-starter-rest-api](https://github.com/monstar-lab-oss/nestjs-starter-rest-api)
 
 ## External Links
 
